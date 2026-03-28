@@ -1,0 +1,88 @@
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th class="background">Name</th>
+      <th class="background">Email</th>
+      <th class="background">Phone</th>
+      <th class="background">Subject</th>
+      <th class="background">Message</th>
+      <th class="text-end background">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John</td>
+      <td>Doe</td>
+      <td>Doe</td>
+      <td>Doe</td>
+      <td>Doe</td>
+      <td class="text-end">
+        <!-- <i class="fa fa-pencil me-4"></i> -->
+        <i
+          class="fa fa-eye me-4"
+          data-bs-toggle="modal"
+          data-bs-target="#myModal"
+        ></i>
+        <i class="fa fa-trash text-danger"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title text text-center">Enquiry Details</h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="mb-1">
+          <label for="name" class="form-label"
+            ><i class="fa fa-user me-1"></i>Name : John Doe
+          </label>
+        </div>
+        <div class="mb-1">
+          <label for="email" class="form-label"
+            ><i class="fa fa-envelope me-1"></i>Email : John.Doeexample.com
+          </label>
+        </div>
+        <div class="mb-1">
+          <label for="phone" class="form-label"
+            ><i class="fa fa-phone me-1"></i>Phone : +91-9876543210
+          </label>
+        </div>
+        <div class="mb-1">
+          <label for="subject" class="form-label"
+            ><i class="fa fa-tag me-1"></i>Subject : Inquiry about Admission
+          </label>
+        </div>
+        <div class="mb-1">
+          <label for="message" class="form-label"
+            ><i class="fa fa-comment me-1"></i>Message : Hello, I would like to
+            know more about the admission process.
+          </label>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-danger btn-sm"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

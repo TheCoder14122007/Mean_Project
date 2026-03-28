@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row justify-content-center mt-5 mb-5">
+    <div class="col-sm-4"></div>
+
+    <div class="col-sm-4 border border-2 rounded p-4 bg-light">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <label class="form-label">Email address <span class="text-danger">*</span></label>
+          <input
+            formControlName="email"
+            type="email"
+            class="form-control"
+            placeholder="Enter your email"
+          />
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+               class="text-danger">
+            Please enter a valid email address.
+          </div>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <label class="form-label">Password</label>
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control"
+            placeholder="Enter your password"
+          />
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+               class="text-danger">
+            Password is required.
+          </div>
+        </div>
+
+        <!-- Sign in button -->
+        <button
+          type="submit"
+          [disabled]="loginForm.invalid"
+          class="btn btn-primary w-100 mb-2"
+        >
+          Sign in
+        </button>
+
+        <!-- Signup button -->
+        <div class="text-center mt-2">
+          <span>Don't have an account? </span>
+          <button type="button" class="btn btn-link p-0" (click)="goToSignup()">
+            Sign up
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="col-sm-4"></div>
+  </div>
+</div>

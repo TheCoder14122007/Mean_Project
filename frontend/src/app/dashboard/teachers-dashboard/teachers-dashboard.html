@@ -1,0 +1,132 @@
+<div class="d-flex justify-content-end mb-3">
+  <a
+    href="#"
+    class="btn bg-primary btn-sm background text-white"
+    data-bs-toggle="modal"
+    data-bs-target="#myModal"
+  >
+    <i class="fa fa-plus"></i> Add Teacher
+  </a>
+</div>
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th class="background">Teacher Name</th>
+      <th class="background">Subject</th>
+      <th class="background">Designation</th>
+      <th class="background">Profile Picture</th>
+      <th class="text-end background">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John Doe</td>
+      <td>Mathematics</td>
+      <td>Senior Teacher</td>
+      <td><img src="profile1.jpg" alt="John Doe" class="img-thumbnail" /></td>
+      <td class="text-end">
+        <i
+          class="fa fa-pencil me-4"
+          data-bs-toggle="modal"
+          data-bs-target="#myModal"
+        ></i>
+        <i class="fa fa-trash text-danger"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title text text-center">Add/Edit Teacher</h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <!-- Part 1: Event Details -->
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="teacherName" class="form-label">Teacher Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="teacherName"
+                  placeholder="Enter teacher name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="subject"
+                  placeholder="Enter subject"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="designation" class="form-label">Designation</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="designation"
+                  placeholder="Enter designation"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="profilePicture" class="form-label"
+                  >Profile Picture</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="profilePicture"
+                  placeholder="Enter profile picture URL"
+                />
+              </div>
+            </div>
+            <!-- Part 2: Event Description -->
+            <div class="col-md-6">
+              <div class="mb-3 h-100 d-flex flex-column">
+                <label for="bio" class="form-label">Bio</label>
+                <textarea
+                  class="form-control flex-grow-1"
+                  id="bio"
+                  rows="8"
+                  placeholder="Enter bio"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-danger background btn-sm"
+            data-bs-dismiss="modal"
+          >
+            Submit
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger btn-sm"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
