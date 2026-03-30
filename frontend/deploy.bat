@@ -8,5 +8,5 @@ firebase deploy
 
 echo.
 echo Deployment complete!
-echo Your app should be live at: https://your-firebase-project-id.web.app
+echo Your app should be live at: https://school-management-site-963b7.web.app
 pause
