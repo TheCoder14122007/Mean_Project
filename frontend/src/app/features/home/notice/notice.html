@@ -1,23 +1,22 @@
 <div class="background py-1">
   <div class="row">
-    <div class="col-sm-1 bg-danger text-end">Notices: -</div>
+    <div class="col-sm-1 bg-danger text-end text-white">
+      Notices: -
+    </div>
+
     <div class="col-sm-11">
-      <marquee
-        behavior="scroll"
-        direction="left"
-        scrollamount="15"
-        class="notice"
-        onmouseover="this.stop();"
-        onmouseout="this.start();"
-      >
-        <a 
-          style="text-decoration: none; color: inherit;" 
-          [routerLink]="['/notice']" 
-          class="text-decoration-none text-dark"
+      <a routerLink="/notices" style="text-decoration: none;">
+        <marquee
+          behavior="scroll"
+          direction="left"
+          scrollamount="15"
+          class="notice text-white"
+          onmouseover="this.stop();"
+          onmouseout="this.start();"
         >
-          {{ notices }}
-        </a>
-      </marquee>
+          {{ notices || 'Stay updated with the latest announcements and events happening at our school.' }}
+        </marquee>
+      </a>
     </div>
   </div>
 </div>

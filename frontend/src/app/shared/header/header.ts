@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Auth } from '../../services/auth';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, NgIf, RouterModule], // Required for *ngIf and routerLink
+  imports: [CommonModule, RouterModule], // Required for routerLink
   templateUrl: './header.html',
   styleUrls: ['./header.scss'],
 })

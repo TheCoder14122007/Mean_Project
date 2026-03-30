@@ -8,33 +8,73 @@
     <i class="fa fa-plus"></i> Add Teacher
   </a>
 </div>
-<table class="table">
-  <thead class="table-dark">
-    <tr>
-      <th class="background">Teacher Name</th>
-      <th class="background">Subject</th>
-      <th class="background">Designation</th>
-      <th class="background">Profile Picture</th>
-      <th class="text-end background">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>John Doe</td>
-      <td>Mathematics</td>
-      <td>Senior Teacher</td>
-      <td><img src="profile1.jpg" alt="John Doe" class="img-thumbnail" /></td>
-      <td class="text-end">
-        <i
-          class="fa fa-pencil me-4"
-          data-bs-toggle="modal"
-          data-bs-target="#myModal"
-        ></i>
-        <i class="fa fa-trash text-danger"></i>
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+<!-- Error Message -->
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+  {{ errorMessage }}
+  <button type="button" class="btn btn-sm btn-outline-danger ms-2" (click)="loadTeachers()">Retry</button>
+</div>
+
+<!-- Loading State -->
+<div *ngIf="isLoading" class="text-center my-4">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p class="mt-2">Loading teachers...</p>
+</div>
+
+<!-- Teachers Table -->
+<div *ngIf="!isLoading && !errorMessage">
+  <table class="table" *ngIf="teachers.length > 0; else noTeachers">
+    <thead class="table-dark">
+      <tr>
+        <th class="background">Teacher Name</th>
+        <th class="background">Subject</th>
+        <th class="background">Designation</th>
+        <th class="background">Profile Picture</th>
+        <th class="text-end background">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teacher of teachers">
+        <td>{{ teacher.name || 'N/A' }}</td>
+        <td>{{ teacher.subject || 'N/A' }}</td>
+        <td>{{ teacher.designation || 'N/A' }}</td>
+        <td>
+          <img 
+            [src]="teacher.profilePicture || 'default-profile.jpg'" 
+            [alt]="teacher.name || 'Teacher'" 
+            class="img-thumbnail" 
+            style="width: 50px; height: 50px; object-fit: cover;"
+          />
+        </td>
+        <td class="text-end">
+          <i
+            class="fa fa-pencil me-4"
+            data-bs-toggle="modal"
+            data-bs-target="#myModal"
+            style="cursor: pointer;"
+            (click)="editTeacher(teacher)"
+          ></i>
+          <i 
+            class="fa fa-trash text-danger" 
+            style="cursor: pointer;"
+            (click)="deleteTeacher(teacher.id)"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- No Teachers Message -->
+  <ng-template #noTeachers>
+    <div class="text-center my-5">
+      <i class="fa fa-users fa-3x text-muted mb-3"></i>
+      <h4>No Teachers Found</h4>
+      <p class="text-muted">There are no teachers registered yet.</p>
+    </div>
+  </ng-template>
+</div>
 
 <!-- The Modal -->
 <div class="modal fade" id="myModal">

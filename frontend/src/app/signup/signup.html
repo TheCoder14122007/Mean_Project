@@ -1,0 +1,121 @@
+<div class="container">
+  <div class="row justify-content-center mt-5 mb-5">
+    <div class="col-sm-4"></div>
+
+    <div class="col-sm-4 border border-2 rounded p-4 bg-light">
+      <h3 class="text-center mb-4 text-primary">Sign Up</h3>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="fas fa-exclamation-circle me-2"></i>
+        {{ errorMessage }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      
+      <!-- Success Message -->
+      <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle me-2"></i>
+        {{ successMessage }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+      <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+        <!-- Name input -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">
+            Full Name <span class="text-danger">*</span>
+          </label>
+          <div class="input-group">
+            <span class="input-group-text bg-light">
+              <i class="fas fa-user"></i>
+            </span>
+            <input
+              formControlName="name"
+              type="text"
+              class="form-control"
+              [class.is-invalid]="signupForm.get('name')?.invalid && signupForm.get('name')?.touched"
+              placeholder="Enter your full name"
+            />
+          </div>
+          <div class="invalid-feedback d-block" *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched">
+            <span *ngIf="signupForm.get('name')?.errors?.['required']">Full name is required.</span>
+            <span *ngIf="signupForm.get('name')?.errors?.['minlength']">Name must be at least 2 characters.</span>
+          </div>
+        </div>
+
+        <!-- Email input -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">
+            Email Address <span class="text-danger">*</span>
+          </label>
+          <div class="input-group">
+            <span class="input-group-text bg-light">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <input
+              formControlName="email"
+              type="email"
+              class="form-control"
+              [class.is-invalid]="signupForm.get('email')?.invalid && signupForm.get('email')?.touched"
+              placeholder="Enter your email"
+            />
+          </div>
+          <div class="invalid-feedback d-block" *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+            <span *ngIf="signupForm.get('email')?.errors?.['required']">Email address is required.</span>
+            <span *ngIf="signupForm.get('email')?.errors?.['email']">Please enter a valid email address.</span>
+          </div>
+        </div>
+
+        <!-- Password input -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">
+            Password <span class="text-danger">*</span>
+          </label>
+          <div class="input-group">
+            <span class="input-group-text bg-light">
+              <i class="fas fa-lock"></i>
+            </span>
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control"
+              [class.is-invalid]="signupForm.get('password')?.invalid && signupForm.get('password')?.touched"
+              placeholder="Enter your password"
+            />
+          </div>
+          <div class="invalid-feedback d-block" *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+            <span *ngIf="signupForm.get('password')?.errors?.['required']">Password is required.</span>
+            <span *ngIf="signupForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters.</span>
+          </div>
+          <small class="text-muted">Password must be at least 6 characters long</small>
+        </div>
+
+        <!-- Sign up button -->
+        <button type="submit" class="btn btn-primary w-100 mb-3" [disabled]="isSubmitting">
+          <span *ngIf="!isSubmitting">
+            <i class="fas fa-user-plus me-2"></i>Sign Up
+          </span>
+          <span *ngIf="isSubmitting">
+            <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+            Creating account...
+          </span>
+        </button>
+
+        <!-- Divider -->
+        <div class="text-center mb-3">
+          <span class="text-muted">or</span>
+        </div>
+
+        <!-- Login button -->
+        <div class="text-center">
+          <span class="text-muted">Already have an account? </span>
+          <button type="button" class="btn btn-link p-0 text-decoration-none" (click)="goToLogin()">
+            <i class="fas fa-sign-in-alt me-1"></i>Login here
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-sm-4"></div>
+  </div>
+</div>

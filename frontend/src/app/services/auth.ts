@@ -26,5 +26,10 @@ export class Auth {
   getToken(): string | null {
     return localStorage.getItem('token');
   }
+
+  signup(name: string, email: string, password: string) {
+    const body = { name, email, password };
+    return this.http.post(`${environment.apiUrl}/auth/signup`, body);
+  }
 }
 

@@ -54,18 +54,6 @@
             <li><a class="dropdown-item background" routerLink="/disclaimer">Disclaimer</a></li>
             <li><a class="dropdown-item background" routerLink="/dashboard">Dashboard</a></li>
 
-            <!-- Logout only if logged in -->
-            <li *ngIf="authService.isLoggedIn()">
-              <a class="dropdown-item background" (click)="authService.logOut()">Logout</a>
-            </li>
-
-            <!-- Login/Signup only if NOT logged in -->
-            <li *ngIf="!authService.isLoggedIn()">
-              <a class="dropdown-item background" routerLink="/login">Login</a>
-            </li>
-            <li *ngIf="!authService.isLoggedIn()">
-              <a class="dropdown-item background" routerLink="/signup">Sign Up</a>
-            </li>
           </ul>
         </li>
       </ul>

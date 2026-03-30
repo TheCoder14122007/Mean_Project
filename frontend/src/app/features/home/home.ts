@@ -7,6 +7,7 @@ import { Gallery } from './gallery/gallery';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [Hero, Notice, Events, Achievements, Gallery],
   templateUrl: './home.html',
   styleUrl: './home.scss',

@@ -48,4 +48,20 @@ export class Api {
   deleteGallery(id: string | number) {
     return this.http.delete(`${environment.apiUrl}/gallery/${id}`);
   }
+
+  // Add or update teacher
+  saveTeacher(data: any) {
+    if (data.id) {
+      // Update existing teacher
+      return this.http.put(`${environment.apiUrl}/teachers/${data.id}`, data);
+    } else {
+      // Add new teacher
+      return this.http.post(`${environment.apiUrl}/teachers`, data);
+    }
+  }
+
+  // Delete teacher
+  deleteTeacher(id: string | number) {
+    return this.http.delete(`${environment.apiUrl}/teachers/${id}`);
+  }
 }

@@ -12,6 +12,7 @@ import { Disclaimer } from './pages/disclaimer/disclaimer';
 import { Dashboard } from './dashboard/dashboard';
 import { Login } from './login/login';
 import { authGuard } from './guards/auth-guard';
+import { Signup } from './signup/signup';  // Make sure import is correct
 
 export const routes: Routes = [
   { path: '', component: Home, pathMatch: 'full' },
@@ -26,5 +27,6 @@ export const routes: Routes = [
   { path: 'disclaimer', component: Disclaimer },
   { path: 'dashboard', component: Dashboard , canActivate: [authGuard]},
   { path: 'login', component: Login },
-  { path: '**', redirectTo: '/home' }
+  { path: 'signup', component: Signup },  // This route should work
+  { path: '**', redirectTo: '' }
 ];
